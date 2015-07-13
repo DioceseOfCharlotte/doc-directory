@@ -11,20 +11,14 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-// Employees
+
 add_action('init', 'doc_employees_register_post_types');
 
-// Departments
-add_action('init', 'doc_departments_register_post_types');
-
-// Documents
-add_action('init', 'doc_documents_register_post_types');
 
 
-
+function doc_employees_register_post_types() {
 
 # Register the Employee post type.
-function doc_employees_register_post_types() {
     register_extended_post_type('employee', array(
 
         'enter_title_here' => 'Employee Name',
@@ -38,13 +32,11 @@ function doc_employees_register_post_types() {
             ),
         ),
     ));
-}
 
 
 
 
 # Register the Department post type.
-function doc_departments_register_post_types() {
     register_extended_post_type('department', array(
 
         'enter_title_here' => 'Department Name',
@@ -53,7 +45,6 @@ function doc_departments_register_post_types() {
         # Add some custom columns to the admin screen:
         'admin_cols' => array(
             'featured_image' => array(
-                'title'          => 'Dept Image',
                 'featured_image' => 'thumbnail'
             ),
             'agency' => array(
@@ -70,13 +61,11 @@ function doc_departments_register_post_types() {
         ),
 
     ));
-}
 
 
 
 
-#Register the Document post type.
-function doc_documents_register_post_types() {
+# Register the Document post type.
     register_extended_post_type('document', array(
 
         'enter_title_here' => 'Document Title',
@@ -88,6 +77,23 @@ function doc_documents_register_post_types() {
                 'title'       => 'Published',
                 'meta_key'    => 'published_date',
                 'date_format' => 'd/m/Y'
+            ),
+        ),
+    ));
+
+
+
+
+# Register the Parish post type.
+    register_extended_post_type('parish', array(
+
+        'enter_title_here' => 'Parish Name',
+        'menu_icon'           => 'dashicons-book-alt',
+
+        # Add some custom columns to the admin screen:
+        'admin_cols' => array(
+            'featured_image' => array(
+                'featured_image' => 'thumbnail',
             ),
         ),
     ));

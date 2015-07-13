@@ -61,6 +61,38 @@ function doc_connections() {
         'admin_column' => 'to',
         'admin_dropdown' => 'to',
     ));
+
+
+    p2p_register_connection_type(array(
+        'name'      => 'employees_to_parishes',
+        'from'      => 'employee',
+        'to'        => 'parish',
+        'sortable'   => 'any',
+        'admin_column' => 'from',
+        'admin_dropdown' => 'from',
+        'admin_box' => array(
+          'context' => 'normal'
+         ),
+        'from_labels' => array(
+        'create' => __('Add Personnel', 'doc-directory'),
+        ),
+        'to_labels' => array(
+        'create' => __('Add Parish', 'doc-directory'),
+        ),
+        'cardinality' => 'many-to-many',
+        'title'       => array(
+            'from' => 'Parish',
+            'to' => 'Personnel'
+            ),
+        'fields'      => array(
+            'role' => array(
+                'title' => 'Role/Title',
+                'type'  => 'text',
+                //'default_cb' => 'my_get_blurb',
+            ),
+        )
+    ));
+
 }
 
 
