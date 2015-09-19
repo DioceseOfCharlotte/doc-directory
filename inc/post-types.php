@@ -41,6 +41,7 @@ function doc_employees_register_post_types() {
 
         'enter_title_here' => 'Department Name',
         'menu_icon'           => 'dashicons-groups',
+        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'page-attributes', ),
 
         # Add some custom columns to the admin screen:
         'admin_cols' => array(
